@@ -143,6 +143,11 @@ var _ = Describe(
 				reportxml.ID("81003"), MustPassRepeatedly(3),
 				rdscorecommon.VerifySRIOVWorkloadsOnDifferentNodesDifferentNet)
 
+			It("Verifies jumbo frame support on secondary SR-IOV kernel-mode interfaces",
+				Label("sriov", "sriov-jumbo-frame", "cnf-24979"),
+				reportxml.ID("95010"),
+				rdscorecommon.VerifyJumboFrameOnSecondarySRIOVKernelMode)
+
 			It("Verifies NUMA-aware workload is deployable", reportxml.ID("73677"), Label("nrop"),
 				rdscorecommon.VerifyNROPWorkload)
 
